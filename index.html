@@ -1,17 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Page with Download Button</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Academic Boycott</title>
+  <meta name="description" content="Simple mobile-responsive static site with hero image, heading, body text and PDF download link">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --radius:12px;
+      --max-width:1000px;
+      --gap:1.25rem;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f8fafc, #eef2ff);color:#0f1724;line-height:1.6}
+
+    /* Layout container */
+    .site{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
+
+    /* Main title image */
+    .hero{position:relative;border-radius:var(--radius);overflow:hidden;display:block}
+    .hero img{width:100%;height:min(45vh,420px);object-fit:cover;display:block}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.25), rgba(2,6,23,0.45));display:flex;align-items:flex-end;padding:1.25rem}
+    .hero .title{color:white;font-size:clamp(1.25rem,4vw,2rem);font-weight:700;margin:0}
+
+    /* Content card*/
+    .card{background:var(--card);border-radius:calc(var(--radius) - 2px);box-shadow:0 6px 20px rgba(16,24,40,0.08);margin-top:var(--gap);padding:1.25rem}
+    h1{font-size:clamp(1.35rem,3.6vw,2.25rem);margin:0 0 0.5rem}
+    p.lead{color:var(--muted);margin:0 0 1rem}
+
+    /* Download button */
+    .actions{display:flex;gap:0.75rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 0.9rem;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid transparent}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-ghost{background:transparent;color:var(--accent);border-color:rgba(37,99,235,0.12)}
+
+    /* Footer small text */
+    .meta{color:var(--muted);font-size:0.9rem;margin-top:0.75rem}
+
+    /* Responsive two-column at wider widths */
+    @media(min-width:880px){
+      .two-col{display:grid;grid-template-columns:1fr 320px;gap:var(--gap);align-items:start}
+      .card{padding:1.5rem}
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to this very boring website</h1>
-    <p>Click the button below to download the file:</p>
-    
-    <!-- Download Button -->
-    <a href="test.txt" download>
-        <button>Download File</button>
+  <div class="site">
+
+    <!-- HERO / title image - this still needs updating -->
+    <a class="hero" href="#" aria-label="Title image">
+      <!-- Replace the src with your title image. Using loading="lazy" for performance -->
+      <img src="wassermelone.svg" alt="our = main banner image" loading="lazy">
+      <div class="overlay">
+        <h2 class="title">Akademische Komplizenschaft beenden!</h2>
+      </div>
     </a>
+
+    <!-- Main content area -->
+    <div class="two-col" style="margin-top:1rem">
+      <main class="card" role="main">
+        <h1></h1>
+        <p class="lead">As students and staff of Leipzig University, we take the University's declaration of commitment to the dignity of all people seriously. The report presented on this page details Leipzig University's direct and indirect support of Israel in its violations of international law through cooperations with Israeli universities, which are embedded in the Israeli political system and in many cases directly contribute to the illegal occupation of Palestine and the genocidal war in Gaza. We call on Leipzig University to honour its ethical commitment to human rights by suspending its cooperations with Israeli universities and academic institutions.</p>
+
+        <p>This is a non violent and anti racist campaign. We advocate for an institutional boycott of these institutions on the basis of their complicity in apartheid and genocide; we explicitly reject any discrimination against individual people on the basis of their race, nationality, religion, or any other characteristic of their identity.</p>
+
+        <div class="actions" style="margin-top:1rem">
+          <a class="btn btn-primary" href="files/your-document.pdf" download="your-document.pdf" aria-label="Download PDF">Download the report</a>
+        </div>
+
+      </main>
+
+      <!-- Sidebar / secondary column -->
+      <aside style="align-self:start">
+        <div class="card" style="padding:1rem">
+          <h3 style="margin:0 0 0.5rem">Sidebar</h3>
+          <p style="margin:0;color:var(--muted)"> This doesn't have to be here necessarily but we can use it for adding some extra content if we want. It could contain our contact information, links to our socials, or something else as we like.
+        </div>
+      </aside>
+    </div>
+
+    <footer style="margin-top:1.25rem;text-align:center;color:var(--muted);font-size:0.9rem">
+      © <span id="year"></span> Your Company — All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    // Need to include a toggle to switch the language from English to German, can do this w
+
+    // accessibility: prevent hero link from being focus trap when it's just decorative
+    document.querySelectorAll('.hero').forEach(el => el.addEventListener('click', e => {
+      if (el.getAttribute('href') === '#') e.preventDefault();
+    }));
+  </script>
 </body>
 </html>
