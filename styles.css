@@ -1,10 +1,197 @@
-:root{
-    --bg:#0f1724;
-    --card:#ffffff;
-    --muted:#6b7280;
-    --accent:#2563eb;
-    --radius:12px;
-    --max-width:1000px;
-    --gap:1.25rem;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+/* styles.css */
+:root {
+    --bg: #0f1724;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent: #cf062a;
+    --radius: 12px;
+    --max-width: 1000px;
+    --gap: 1.25rem;
+    font-family: 'AUTHENTIC Sans', Arial, sans-serif;
+}
+
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Zalando Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Adjust weight as needed (200–900) */
+    font-style: normal;
+    background: linear-gradient(180deg, #f8fafc, #eef2ff);
+    color: #0f1724;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Layout container */
+.site {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+
+/* Content Cards */
+.card {
+    background: var(--card);
+    border-radius: calc(var(--radius) - 2px);
+    box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.card h2 {
+    font-size: clamp(1.35rem, 3.6vw, 2rem);
+    margin: 0 0 0.75rem;
+    color: #1e293b;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+    color: #1e293b;
+}
+
+.card h4 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    color: #1e293b;
+}
+
+p.lead {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem;
+    font-weight: 500;
+}
+
+.card p {
+    margin-bottom: 1rem;
+    color: #475569;
+}
+
+/* Demand List */
+.demand-list {
+    list-style: none;
+    margin: 1rem 0;
+    padding-left: 1.5rem; /* Indent the entire list */
+}
+
+.demand-list li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 0.5rem; /* Additional indentation for list items */
+}
+
+.demand-list li:before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: -1rem; /* Position bullet outside the list item */
+    font-size: 1.2rem;
+}
+
+.demand-list a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.demand-list a:hover {
+    color: #0b8049;
+    text-decoration: underline;
+}
+
+/* Alternative: Using standard list styling with indentation */
+.standard-list {
+    margin: 1rem 0;
+    padding-left: 2rem; /* Indent the entire list */
+}
+
+.standard-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem; /* Additional indentation for list items */
+    line-height: 1.5;
+}
+
+/* Contact Info */
+.contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Download Button */
+.actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0b8049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    padding: 1rem 0;
+}
+
+/* Responsive Layout */
+.content-wrapper {
+    margin-top: var(--gap);
+}
+
+@media (min-width: 768px) {
+    .content-wrapper {
+        display: flex;
+        gap: var(--gap);
     }
+    
+    .main-content {
+        flex: 1;
+    }
+    
+    .sidebar {
+        width: 320px;
+    }
+}
