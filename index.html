@@ -43,9 +43,19 @@
     /* Footer small text */
     .meta{color:var(--muted);font-size:0.9rem;margin-top:0.75rem}
 
-    /* Responsive two-column at wider widths */
+    /* Simplified responsive layout */
     @media(min-width:880px){
-      .two-col{display:grid;grid-template-columns:1fr 320px;gap:var(--gap);align-items:start}
+      .content-wrapper {
+        display: flex;
+        gap: var(--gap);
+        margin-top: var(--gap);
+      }
+      .main-content {
+        flex: 1;
+      }
+      .sidebar {
+        width: 320px;
+      }
       .card{padding:1.5rem}
     }
   </style>
@@ -54,31 +64,32 @@
   <div class="site">
 
     <a class="hero" href="#" aria-label="Title image">
-      <img src="wassermelone.svg" alt="our = main banner image" loading="lazy">
+      <img src="wassermelone.svg" alt="our main banner image" loading="lazy">
       <div class="overlay">
         <h2 class="title">Main title</h2>
       </div>
     </a>
 
     <!-- Main content area -->
-    <div class="two-col" style="margin-top:1rem">
-      <main class="card" role="main">
-        <h1></h1>
-        <p class="lead">Main text</p>
+    <div class="content-wrapper">
+      <main class="main-content" role="main">
+        <div class="card">
+          <h1>Main Heading</h1>
+          <p class="lead">Main text describing your content or purpose.</p>
 
-        <p>Secondary text</p>
+          <p>Secondary text providing additional details or context.</p>
 
-        <div class="actions" style="margin-top:1rem">
-          <a class="btn btn-primary" href="files/your-document.pdf" download="your-document.pdf" aria-label="Download PDF">Download the report</a>
+          <div class="actions" style="margin-top:1rem">
+            <a class="btn btn-primary" href="files/your-document.pdf" download="your-document.pdf" aria-label="Download PDF">Download the report</a>
+          </div>
         </div>
-
       </main>
 
       <!-- Sidebar / secondary column -->
-      <aside style="align-self:start">
-        <div class="card" style="padding:1rem">
+      <aside class="sidebar">
+        <div class="card">
           <h3 style="margin:0 0 0.5rem">Sidebar</h3>
-          <p style="margin:0;color:var(--muted)"> Further information
+          <p style="margin:0;color:var(--muted)">Further information or additional content can go here.</p>
         </div>
       </aside>
     </div>
@@ -89,7 +100,10 @@
   </div>
 
   <script>
-    // Need to include a toggle to switch the language from English to German, can do this once the content is sorted
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Prevent default behavior for hero link if it's just '#'
     document.querySelectorAll('.hero').forEach(el => el.addEventListener('click', e => {
       if (el.getAttribute('href') === '#') e.preventDefault();
     }));
