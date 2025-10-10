@@ -1,17 +1,13 @@
 /* styles.css */
 :root {
     --bg: #0f1724;
-    --card: #ffffff;
     --muted: #6b7280;
-    --accent: #cf062a;
+    --accent: #c84c46;
     --radius: 12px;
     --max-width: 1000px;
     --gap: 1.25rem;
-    font-family: 'Zalando Sans', Arial, sans-serif;
+    font-family: "Zalando Sans", sans-serif;
 }
-
-
-
 
 * {
     box-sizing: border-box;
@@ -24,8 +20,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 400; /* Adjust weight as needed (200–900) */
     font-style: normal;
-    background: linear-gradient(180deg, #f8fafc, #eef2ff);
-    color: #0f1724;
+    background: #0f1724;
+    color: #ffffff;
     line-height: 1.6;
     min-height: 100vh;
 }
@@ -50,19 +46,23 @@ body {
 .card h2 {
     font-size: clamp(1.35rem, 3.6vw, 2rem);
     margin: 0 0 0.75rem;
-    color: #1e293b;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: clamp(4.35rem, 3.6vw, 8rem);
 }
 
 .card h3 {
     font-size: 1.25rem;
     margin: 0 0 0.75rem;
-    color: #1e293b;
+    color: #ffffff;
 }
 
 .card h4 {
     font-size: 1.1rem;
     margin: 1rem 0 0.5rem;
-    color: #1e293b;
+    color: #ffffff;
 }
 
 p.lead {
@@ -74,7 +74,7 @@ p.lead {
 
 .card p {
     margin-bottom: 1rem;
-    color: #475569;
+    color: #1e293b;
 }
 
 /* Demand List */
@@ -142,6 +142,41 @@ p.lead {
     flex-wrap: wrap;
     margin-top: 1.5rem;
 }
+
+.eng { display: block; }
+.de { display: none; }
+
+#toggle {
+  display: none;
+}
+
+label {
+  padding: 10px 20px;
+  background-color: #555555;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#toggle:not(:checked) + label::after {
+  content: "Deutsch";
+}
+
+#toggle:checked + label::after {
+  content: "English";
+}
+
+#toggle:checked ~ .hero .eng,
+#toggle:checked ~ .content-wrapper .eng {
+  display: none;
+}
+
+#toggle:checked ~ .hero .de,
+#toggle:checked ~ .content-wrapper .de {
+  display: block;
+}
+
+
 
 .btn {
     display: inline-flex;
