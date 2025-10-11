@@ -229,9 +229,7 @@ footer {
 }
 
 @media (max-width: 767px) {
-    #toggle:checked ~ .hero .de h1,
-    #toggle:checked ~ .content-wrapper .de h1 {
-        font-size: clamp(2rem, 5vw, 2.5rem); /* smaller for mobile */
-        color: yellow; /* test color */
-    }
+  body {
+    background: red !important;
+  }
 }
