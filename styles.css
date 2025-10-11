@@ -43,7 +43,7 @@ body {
 }
 
 .card h2 {
-    font-size: clamp(1.35rem, 3.6vw, 2rem);
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
     margin: 0 0 0.75rem;
     color: #ffffff;
 }
